@@ -39,6 +39,10 @@
   backdrop-filter: saturate(1.8) blur(20px)
 }
 
+#mainContent {
+  margin-top: 72px;
+}
+
 .text-grey-white {
   color: #ffffffa6;
 }
