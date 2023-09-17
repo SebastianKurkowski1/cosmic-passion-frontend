@@ -8,11 +8,12 @@ const request = async <T>(method: Method, route: string, body?: never): Promise<
     headers.set('Content-Type', 'application/json');
     const routeComputed = route.startsWith('/') ? route : `/${route}`;
 
-    const API_BASE_URL = '';
-    const response = await fetch(`${API_BASE_URL}${routeComputed}`, {
+    //const API_BASE_URL = '';
+    const response = await fetch(`https://127.0.0.1:8000${routeComputed}`, {
         headers,
         credentials: 'include',
         method,
+        mode: 'no-cors',
         body: body ? JSON.stringify(body) : undefined,
     });
 

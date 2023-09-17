@@ -1,7 +1,7 @@
 import fetcher, {Method} from "@/services/fetcher.ts";
 
 export default function HomePage() {
-    fetcher(Method.GET, 'api', ).then(() => {
+    fetcher(Method.GET, 'api/apod/', ).then(() => {
         console.log('asdasd');
     })
 
