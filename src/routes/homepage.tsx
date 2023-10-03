@@ -1,9 +1,20 @@
-import fetcher, {Method} from "@/services/fetcher.ts";
+import {Method} from "@/services/fetcher.ts";
+import request from "@/services/fetcher.ts";
+import {useEffect} from "react";
 
 export default function HomePage() {
-    fetcher(Method.GET, 'api/apod/', ).then(() => {
-        console.log('asdasd');
-    })
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                await request(Method.GET, 'api/apod/2023-09-15');
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData().then(r => console.log(r));
+    }, []);
 
     return (
         <>

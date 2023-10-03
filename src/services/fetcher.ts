@@ -3,7 +3,7 @@ export enum Method {
     GET = 'GET',
 }
 
-const request = async <T>(method: Method, route: string, body?: never): Promise<T> => {
+const request = async <T>(method: Method, route: string, body?: BodyInit | null): Promise<T> => {
     const headers = new Headers();
     headers.set('Content-Type', 'application/json');
     const routeComputed = route.startsWith('/') ? route : `/${route}`;
@@ -13,19 +13,19 @@ const request = async <T>(method: Method, route: string, body?: never): Promise<
         headers,
         credentials: 'include',
         method,
-        mode: 'no-cors',
         body: body ? JSON.stringify(body) : undefined,
     });
 
     if (response.status.toString().startsWith('5')) {
-        // handle errors
+        throw new Error('Server Error');
     }
 
     if (response.status.toString().startsWith('4')) {
-        // handle errors
+        throw new Error('Client Error');
     }
-
+    console.log(response);
     return await response.json() as T;
+
 }
 
 export default request;
