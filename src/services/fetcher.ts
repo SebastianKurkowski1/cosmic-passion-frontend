@@ -23,7 +23,7 @@ const request = async <T>(method: Method, route: string, body?: BodyInit | null)
     if (response.status.toString().startsWith('4')) {
         throw new Error('Client Error');
     }
-    console.log(response);
+
     return await response.json() as T;
 
 }

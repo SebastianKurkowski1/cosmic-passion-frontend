@@ -1,25 +1,13 @@
-import {Method} from "@/services/fetcher.ts";
-import request from "@/services/fetcher.ts";
-import {useEffect} from "react";
+import ApodImage from "@/components/apod/apodImage.tsx";
+import useCurrentDate from "@/hooks/useCurrentDate.ts";
 
 export default function HomePage() {
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                await request(Method.POST, 'api/apod/2023-09-15');
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        fetchData().then(r => console.log(r));
-    }, []);
+    const date = useCurrentDate();
 
     return (
         <>
             <div className={"flex items-center flex-col"}>
-                Homepage
+                {date ? <ApodImage date={date}/> : ""}
             </div>
         </>
     );
