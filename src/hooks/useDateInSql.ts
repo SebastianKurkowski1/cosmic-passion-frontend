@@ -7,8 +7,8 @@ function useApodData(date: string) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await request(Method.POST, `api/apod/${date.date}`);
-                setApodData(response.data);
+                const response = await request(Method.POST, `api/apod/${date}`);
+                setApodData(response);
                 console.log(response);
             } catch (error) {
                 console.error(error);

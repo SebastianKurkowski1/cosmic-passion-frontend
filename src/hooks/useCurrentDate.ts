@@ -1,17 +1,20 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-function useCurrentDate() {
-    let formattedDate = '';
+function useDateInSql(daysBack?: number) {
+    const [formattedDate, setFormattedDate] = useState('');
 
     useEffect(() => {
         const currentDate = new Date();
+        const adjustedDaysBack = daysBack ?? 0;
+        currentDate.setDate(currentDate.getDate() - adjustedDaysBack);
         const year = currentDate.getFullYear();
         const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Month is 0-based
         const day = String(currentDate.getDate()).padStart(2, '0');
-        formattedDate = `${year}-${month}-${day}`;
+        const formatted = `${year}-${month}-${day}`;
+        setFormattedDate(formatted);
     }, []);
 
     return formattedDate;
 }
 
-export default useCurrentDate;
+export default useDateInSql;
