@@ -1,3 +1,61 @@
+/* Base font size for the root element (adjust as needed) */
+html {
+  font-size: 16px; /* You can set your preferred base font size here */
+}
+
+/* Responsive font sizes for headers */
+h1 {
+  font-size: 2rem; /* Large font size for h1 on all screens */
+}
+
+h2 {
+  font-size: 1.75rem; /* Slightly smaller font size for h2 */
+}
+
+h3 {
+  font-size: 1.5rem; /* Smaller font size for h3 */
+}
+
+h4 {
+  font-size: 1.25rem; /* Smaller font size for h4 */
+}
+
+h5 {
+  font-size: 1.125rem; /* Smaller font size for h5 */
+}
+
+h6 {
+  font-size: 1rem; /* Smallest font size for h6 */
+}
+
+/* Responsive font size for span elements */
+span {
+  font-size: 1rem; /* Default font size for spans (adjust as needed) */
+}
+
+/* Responsive font size for paragraphs */
+p {
+  font-size: 1rem; /* Default font size for paragraphs (adjust as needed) */
+}
+
+/* Responsive font sizes for different screen widths */
+@media screen and (min-width: 768px) {
+  /* Increase font sizes for larger screens (adjust as needed) */
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  /* ... Add more media queries and font size adjustments as needed */
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

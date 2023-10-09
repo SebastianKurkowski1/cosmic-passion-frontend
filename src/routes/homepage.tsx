@@ -2,7 +2,7 @@ import ApodImage from "@/components/apod/apodImage.tsx";
 import useCurrentDate from "@/hooks/useCurrentDate.ts";
 
 export default function HomePage() {
-    const date = useCurrentDate(3);
+    const date = useCurrentDate(6);
 
     return (
         <>
