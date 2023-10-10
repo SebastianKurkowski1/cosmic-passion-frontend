@@ -1,4 +1,4 @@
-import useApodData from "@/hooks/useDateInSql.ts";
+import useApodData from "@/hooks/useApodData.ts";
 
 export default function ApodImage({date}: { date: string }) {
     const apodData = useApodData(date);
