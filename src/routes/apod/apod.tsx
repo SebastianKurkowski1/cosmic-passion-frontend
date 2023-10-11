@@ -8,6 +8,7 @@ export default function Apod() {
     const {date} = useParams();
     const yesterday = useCurrentDate(1);
     const [selectedDate, setSelectedDate] = useState();
+    const dateRange = {"start": "2023-09-10", "end": "2023-10-10"};
 
     useEffect(() => {
         if (date) {
@@ -25,7 +26,7 @@ export default function Apod() {
     return (
         <>
             <div className={"flex"}>
-                <DatePickerDemo onDateChange={handleDateChange}/>
+                <DatePickerDemo onDateChange={handleDateChange} dateRange={dateRange}/>
                 <div className={"flex items-center flex-col"}>
                     <span>arrow left</span>
                     {selectedDate ? <ApodImage date={selectedDate}/> : ""}
