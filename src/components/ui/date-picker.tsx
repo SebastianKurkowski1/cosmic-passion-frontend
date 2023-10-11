@@ -29,6 +29,7 @@ export default function DatePicker({onDateChange, dateRange}) {
         <Popover>
             <PopoverTrigger asChild>
                 <Button
+                    style={{position: "sticky", top: "60px"}}
                     variant={"outline"}
                     className={cn(
                         "w-[280px] justify-start text-left font-normal",

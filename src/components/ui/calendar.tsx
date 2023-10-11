@@ -27,8 +27,12 @@ function Calendar({
         return date >= startDate && date <= endDate;
     };
 
+    console.log(props);
+
     return (
         <DayPicker
+            fromDate={startDate}
+            toDate={endDate}
             showOutsideDays={showOutsideDays}
             className={cn("p-3", className)}
             classNames={{
