@@ -3,6 +3,7 @@ import ApodImage from "@/components/apod/apodImage.tsx";
 import DatePickerDemo from "@/components/ui/date-picker.tsx";
 import {useEffect, useState} from "react";
 import useCurrentDate from "@/hooks/useCurrentDate.ts";
+import {Skeleton} from "@/components/ui/skeleton.tsx";
 
 export default function Apod() {
     const {date} = useParams();
@@ -28,7 +29,7 @@ export default function Apod() {
             <div className={"flex"}>
                 <DatePickerDemo onDateChange={handleDateChange} dateRange={dateRange}/>
                 <div className={"flex items-center flex-col"}>
-                    {selectedDate ? <ApodImage date={selectedDate}/> : ""}
+                    {selectedDate ? <ApodImage date={selectedDate}/> : <Skeleton />}
                 </div>
             </div>
         </>
