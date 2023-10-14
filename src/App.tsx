@@ -3,9 +3,9 @@ import {ThemeProvider} from "@/components/theme-provider.tsx";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Root from "@/routes/root.tsx";
 import ErrorPage from "@/error-page.tsx";
-import Curiosity from "@/routes/rovers/curiosity.tsx";
 import HomePage from "@/routes/homepage.tsx";
 import Apod from "@/routes/apod/apod.tsx";
+import Rovers from "@/routes/rovers/rovers.tsx";
 
 const router = createBrowserRouter([
     {
@@ -17,20 +17,8 @@ const router = createBrowserRouter([
                 element: <HomePage/>
             },
             {
-                path: "/rovers/curiosity/:sol?",
-                element: <Curiosity/>,
-            },
-            {
-                path: "/rovers/perseverance/:sol?",
-                element: <Curiosity/>
-            },
-            {
-                path: "/rovers/spirit/:sol?",
-                element: <Curiosity/>
-            },
-            {
-                path: "/rovers/opportunity/:sol?",
-                element: <Curiosity/>
+                path: "/rovers/:rover/:sol?",
+                element: <Rovers/>,
             },
             {
                 path: "/apod/:date?",

@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import request, {Method} from "@/services/fetcher.ts";
 
-function useRoverData(sol: string, roverName: string) {
+function useRoverData(sol: number, roverName: string) {
     const [roverData, setRoverData] = useState(null);
 
     useEffect(() => {
