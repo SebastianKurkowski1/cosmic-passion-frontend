@@ -7,6 +7,7 @@ export default function HomePage() {
     return (
         <>
             <div className={"flex items-center flex-col"}>
+                <h1 className={"text-center pb-2"}>Astronomy picture of the day {date}</h1>
                 {date ? <ApodImage date={date}/> : ""}
             </div>
         </>

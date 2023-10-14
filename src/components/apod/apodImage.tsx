@@ -1,8 +1,7 @@
 import useApodData from "@/hooks/useApodData.ts";
 import {Skeleton} from "@/components/ui/skeleton.tsx";
-import {useState} from "react";
-import {Dialog, DialogTrigger} from "@/components/ui/dialog.tsx";
-import ImageModal from "@/components/ui/image-modal.tsx";
+import ReactImageGallery from "react-image-gallery";
+import ReactPlayer from "react-player/youtube";
 
 export default function ApodImage({date}: { date: string }) {
     const apodData = useApodData(date);
@@ -10,23 +9,38 @@ export default function ApodImage({date}: { date: string }) {
     return (
         <>
             {apodData ? (
-                <div className={"flex flex-col max-w-6xl"} style={{height: '80vh'}}>
-                    <h1 className={"text-center pb-2"}>Astronomical picture of the day</h1>
-                    <Dialog>
-                        <DialogTrigger>
-                            <img
-                                className={"rounded object-scale-down max-h-full drop-shadow-md rounded-md m-auto cursor-pointer"}
-                                src={apodData.url}
-                                alt={apodData.title}
+                <div className={"flex flex-col max-w-6xl"}>
+                    {apodData.mediaType != 'video' ?
+                        (
+                        <ReactImageGallery
+                            items={[{
+                                original: apodData.url,
+                                fullscreen: apodData.hdurl,
+                                originalTitle: apodData.title,
+                            }]}
+                            showPlayButton={false}
+                            additionalClass={"apodPicture"}/>
+                        ) :
+                        (
+                            <ReactPlayer
+                                url={apodData.url}
+                                width={"unset"}
+                                height={"60vh"}
+                                config={{
+                                    playerVars: {
+                                        controls: 2
+                                    }
+                                }}
                             />
-                        </DialogTrigger>
-                        <ImageModal url={apodData.hdurl ? apodData.hdurl : ""}/>
-                    </Dialog>
+                        )
+                    }
+
+
                     <h2 className={"text-center p-2"}>{apodData.title}</h2>
                     <span className={"text-center"}>{apodData.explanation}</span>
                 </div>
             ) : (
-                <Skeleton className="w-[30vw] h-[80vh] "/>
+                <Skeleton className="w-[60vw] h-[80vh] "/>
             )}
 
 

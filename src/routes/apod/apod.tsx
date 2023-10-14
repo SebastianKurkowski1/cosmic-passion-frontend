@@ -26,7 +26,7 @@ export default function Apod() {
     };
     return (
         <>
-            <div className={"flex"}>
+            <div className={"flex justify-evenly flex-col md:flex-row items-center md:items-start"}>
                 <DatePickerDemo onDateChange={handleDateChange} dateRange={dateRange}/>
                 <div className={"flex items-center flex-col"}>
                     {selectedDate ? <ApodImage date={selectedDate}/> : <Skeleton />}

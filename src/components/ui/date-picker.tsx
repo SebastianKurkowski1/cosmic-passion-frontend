@@ -13,7 +13,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 
-export default function DatePicker({onDateChange, dateRange}) {
+export default function DatePicker({onDateChange, dateRange, additionalClass = ""}) {
     const [date, setDate] = React.useState<Date>()
     const handleDateSelect = (selectedDate) => {
         setDate(selectedDate);
@@ -32,7 +32,7 @@ export default function DatePicker({onDateChange, dateRange}) {
                     style={{position: "sticky", top: "60px"}}
                     variant={"outline"}
                     className={cn(
-                        "w-[280px] justify-start text-left font-normal",
+                        `w-[280px] justify-start text-left font-normal mb-2 md:mb-0 ${additionalClass} `,
                         !date && "text-muted-foreground"
                     )}
                 >

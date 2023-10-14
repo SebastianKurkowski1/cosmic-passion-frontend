@@ -9,7 +9,6 @@ function useApodData(date: string) {
             try {
                 const response = await request(Method.POST, `api/apod/${date}`);
                 setApodData(response);
-                console.log(response);
             } catch (error) {
                 console.error(error);
             }

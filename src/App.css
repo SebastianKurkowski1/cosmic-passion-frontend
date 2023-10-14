@@ -106,3 +106,21 @@ p {
 .text-grey-white {
   color: #ffffffa6;
 }
+
+
+.apodPicture .image-gallery-image {
+  border-radius: 10px;
+  height: 60vh;
+}
+
+@media only screen and (max-width: 1000px) {
+  .apodPicture .image-gallery-image {
+    border-radius: 10px;
+    height: unset;
+  }
+}
+
+.apodPicture .fullscreen .image-gallery-image {
+  height: unset;
+  border-radius: unset;
+}
