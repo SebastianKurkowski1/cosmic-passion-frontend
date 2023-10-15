@@ -14,7 +14,7 @@ export default function Rovers() {
 
     return (
         <>
-            <div className={"h-screen"}>
+            <div>
                 {roverData ? (<ReactImageGallery items={roverData} />) : ( <Skeleton className="w-full h-[80vh] "/>)}
             </div>
         </>

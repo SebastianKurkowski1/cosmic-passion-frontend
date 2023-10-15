@@ -6,7 +6,7 @@ import {cn} from "@/lib/utils"
 import {buttonVariants} from "@/components/ui/button"
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
-    dateRange: { start: string; end: string };
+    dateRange: { first: string; last: string };
 };
 
 function Calendar({
@@ -17,11 +17,11 @@ function Calendar({
                       ...props
                   }: CalendarProps) {
 
-    const { start, end } = dateRange;
+    const { first, last } = dateRange;
 
     // Parse the start and end dates from the date range string
-    const startDate = new Date(start);
-    const endDate = new Date(end);
+    const startDate = new Date(first);
+    const endDate = new Date(last);
 
     const isDateInRange = (date) => {
         return date >= startDate && date <= endDate;
