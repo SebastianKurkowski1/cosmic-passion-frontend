@@ -8,14 +8,24 @@ function useRoverData(sol: number, roverName: string) {
         const fetchData = async () => {
             try {
                 const response = await request(Method.POST, `api/rover/${roverName}/${sol}`);
-                setRoverData(response);
-                console.log(response);
+                const formatedData = response.map((data) => {
+                    const formatedDate = data.earthDate.slice(0, 10);
+
+                    return {
+                        'original': data.imgSrc,
+                        'thumbnail': data.imgSrc,
+                        'fullscreen': data.imgSrc,
+                        'description': formatedDate + ' id:' + data.id,
+                        'loading': 'lazy',
+                    };
+                })
+                setRoverData(formatedData);
             } catch (error) {
                 console.error(error);
             }
         };
 
-     fetchData();
+        fetchData();
     }, [sol]);
 
     return roverData;
